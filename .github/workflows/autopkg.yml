@@ -40,7 +40,7 @@ jobs:
       uses: actions/checkout@28c7f3d2b5162b5ddd3dfd9a45aa55eaf396478b
       with:
         repository: 26fiftysix/autopkg-repo
-        token: ${{ secrets.AUTOPKG_GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 1
         ref: refs/heads/master
         path: munki_repo
