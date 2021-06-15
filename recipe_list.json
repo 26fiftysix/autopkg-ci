@@ -1,4 +1,5 @@
 [
 	"Firefox.munki.recipe",
-  "GoogleChrome.munki.recipe"
+  "GoogleChrome.munki.recipe",
+  "TextMate2.munki.recipe"
 ]
