@@ -6,5 +6,5 @@ chardet==3.0.4
 Click==8.0.1
 idna==3.2
 requests==2.25.1
-toml==0.10.0
+toml==0.10.1
 urllib3==1.26.5
