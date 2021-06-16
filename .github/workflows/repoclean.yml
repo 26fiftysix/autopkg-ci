@@ -22,10 +22,10 @@ jobs:
       uses: actions/checkout@28c7f3d2b5162b5ddd3dfd9a45aa55eaf396478b
       with:
         fetch-depth: 1
-        repository: replace_with_your_munki_repo
+        repository: 26fiftysix/autopkg-repo
         ref: refs/heads/master
         path: munki_repo
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.AUTOPKG_GITHUB_TOKEN }}
 
     - name: Run Munki repoclean
       run: |
