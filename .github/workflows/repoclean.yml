@@ -42,9 +42,9 @@ jobs:
         cd munki_repo/
         git checkout -b "repoclean-`date +'%Y-%m-%d'`"
         if git diff --exit-code; then
-          echo "changes_exists=true" >> $GITHUB_ENV
-        else
           echo "changes_exists=false" >> $GITHUB_ENV
+        else
+          echo "changes_exists=true" >> $GITHUB_ENV
         fi
 
     - name: Commit and Push
