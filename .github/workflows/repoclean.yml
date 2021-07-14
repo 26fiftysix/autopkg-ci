@@ -31,11 +31,29 @@ jobs:
       run: |
         yes | python3 munki/code/client/repoclean --keep 2 munki_repo
 
-    - name: Push changes
+    - name: Configure Git
       run: |
-        cd munki_repo/
         git config --global user.name "runner"
         git config --global user.email "runner@githubactions.local"
+
+    - name: Check for changes
+      run: |
+        cd munki_repo/
         git checkout -b "repoclean-`date +'%Y-%m-%d'`"
+        if git diff --exit-code; then
+          echo "changes_exists=true" >> $GITHUB_ENV
+        else
+          echo "changes_exists=false" >> $GITHUB_ENV
+        fi
+
+    - name: Commit and Push
+      if: ${{ env.changes_exists == 'true' }}
+      run: |
         git add -u pkgsinfo/ pkgs/
-        if git diff --exit-code; then git commit -m "`date +'%Y-%m-%d'` repoclean" && git push --set-upstream origin "repoclean-`date +'%Y-%m-%d'`"; else echo "Nothing to commit"; fi
+        git commit -m "`date +'%Y-%m-%d'` repoclean"
+        git push --set-upstream origin "repoclean-`date +'%Y-%m-%d'`"
+
+    - name: Nothing to commit
+      if: ${{ env.changes_exists == 'false' }}
+      run: |
+        echo "Nothing to commit."
