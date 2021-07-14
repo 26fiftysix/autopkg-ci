@@ -50,6 +50,7 @@ jobs:
     - name: Commit and Push
       if: ${{ env.changes_exists == 'true' }}
       run: |
+        cd munki_repo/
         git add -u pkgsinfo/ pkgs/
         git commit -m "`date +'%Y-%m-%d'` repoclean"
         git push --set-upstream origin "repoclean-`date +'%Y-%m-%d'`"
