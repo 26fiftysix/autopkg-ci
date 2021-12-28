@@ -1,5 +1,5 @@
 appdirs==1.4.4
-attrs==21.2.0
+attrs==21.3.0
 black==21.11b1
 certifi==2021.10.8
 chardet==4.0.0
