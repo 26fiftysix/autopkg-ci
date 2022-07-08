@@ -7,4 +7,4 @@ Click==8.0.3
 idna<3
 requests==2.26.0
 toml==0.10.2
-urllib3==1.26.7
+urllib3==1.26.10
